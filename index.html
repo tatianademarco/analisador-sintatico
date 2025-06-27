@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Analisador Sintático</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 min-h-screen p-6">
+    <div class="max-w-6xl mx-auto bg-white p-8 rounded-2xl shadow-md space-y-6">
+        <h1 class="text-2xl font-bold text-center">Analisador Sintático</h1>
+
+        <div>
+            <label class="block text-lg font-semibold">Digite a sentença:</label>
+            <input type="text" id="inputSentence" placeholder="Ex: a b" class="w-full p-2 border rounded mt-2" />
+        </div>
+        <div class="flex gap-4">
+            <button id="analyzeBtn" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                Analisar Sentença
+            </button>
+            <button id="stepBtn" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
+                Passo a Passo
+            </button>
+            <button id="generateBtn" class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">
+                Gerar Sentença
+            </button>
+            <button id="randomBtn" class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700">
+                Gerar Sentença Aleatória
+            </button>
+            <button id="clearBtn" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">
+                Limpar
+            </button>
+        </div>
+        <div class="mt-6">
+            <button id="toggleGrammar" class="bg-gray-700 text-white px-4 py-2 rounded hover:bg-gray-800 mb-2">
+                Mostrar Gramática, FIRST e FOLLOW
+            </button>
+
+            <div id="grammarSection" class="hidden bg-gray-50 border rounded-lg p-4 flex flex-col md:flex-row gap-6">
+                <div class="flex-1">
+                    <h3 class="text-lg font-bold">Gramática:</h3>
+                    <pre class="bg-white p-3 rounded border text-sm" id="grammarText"></pre>
+                </div>
+                <div class="flex-1">
+                    <h3 class="text-lg font-bold">FIRST:</h3>
+                    <pre class="bg-white p-3 rounded border text-sm" id="firstSet"></pre>
+                </div>
+                <div class="flex-1">
+                    <h3 class="text-lg font-bold">FOLLOW:</h3>
+                    <pre class="bg-white p-3 rounded border text-sm" id="followSet"></pre>
+                </div>
+            </div>
+
+            <div>
+                <h2 class="text-xl font-semibold mt-6">Tabela de Parsing</h2>
+                <div class="overflow-x-auto">
+                    <table id="parsingTable" class="min-w-full bg-white border border-gray-300 text-sm">
+                    </table>
+                </div>
+            </div>
+
+            <div>
+                <h2 class="text-xl font-semibold mt-6">Resultado:</h2>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full bg-white border border-gray-300">
+                        <thead>
+                            <tr class="bg-gray-200 text-gray-800">
+                                <th class="border px-4 py-2">Pilha</th>
+                                <th class="border px-4 py-2">Entrada</th>
+                                <th class="border px-4 py-2">Ação</th>
+                            </tr>
+                        </thead>
+                        <tbody id="resultTable" class="text-sm text-gray-800">
+                        </tbody>
+                    </table>
+                </div>
+                <p id="finalResult" class="mt-4 font-semibold"></p>
+            </div>
+        </div>
+        <script src="script.js" type="text/javascript"> console.log(clicou)</script>
+</body>
+
+</html>
